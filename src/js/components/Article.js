@@ -2,6 +2,8 @@ import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
+import CSSTransitionGroup from 'react-transition-group'
+import  './article.css'
 
 class Article extends PureComponent {
     //PureComponent Это компонент который сравнивает изменения пропсов и обновляет только те в которых изменения произошли
@@ -35,6 +37,21 @@ class Article extends PureComponent {
     render() {
 
         const {article, isOpen, toggleOpen} = this.props;
+
+        /* 
+            так было в версии 1й, а во второй по другому уже всё (нужно переделать)
+            <CSSTransitionGroup
+                    transitionName = 'article'
+                    transitionAppear
+                    transitionEnterTimeout = {300}
+                    transitionLeaveTimeout = {500}
+                    transitionAppearTimeout = {500}
+                    component = 'div'
+                >
+                    
+                    <h3>{article.title}</h3>
+                </CSSTransitionGroup>
+         */
 
         return (
             <div ref = {this.setContainerRef}>
